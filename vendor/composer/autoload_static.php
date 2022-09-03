@@ -13,7 +13,7 @@ class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
         ),
         'B' => 
         array (
-            'BTB\\Events\\' => 11,
+            'BTBEvents\\Plugin\\' => 17,
         ),
     );
 
@@ -22,9 +22,9 @@ class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
         array (
             0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
         ),
-        'BTB\\Events\\' => 
+        'BTBEvents\\Plugin\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/inc',
         ),
     );
 

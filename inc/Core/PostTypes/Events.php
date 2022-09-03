@@ -18,6 +18,7 @@ class Events {
 		$this->meta_data();
 		$this->taxonomy();
 		$this->archive_settings();
+		$this->register_post_type_object();
 	}
 
 	public static function get_post_type() {
@@ -43,22 +44,29 @@ class Events {
 		$this->post_type_object = new PostType(
 			[
 				'name'     => self::get_post_type(),
-				'singular' => __( 'Example Post Type', Plugin::get_text_domain() ),
-				'plural'   => __( 'Example Post Types', Plugin::get_text_domain() ),
+				'singular' => __( 'Event', Plugin::get_text_domain() ),
+				'plural'   => __( 'Events', Plugin::get_text_domain() ),
 			],
 			[
 				'supports'     => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-				'menu_icon'    => 'dashicons-admin-tools',
+				'menu_icon'    => 'dashicons-calendar',
 				'public'       => true,
-				'has_archive'  => true,
+				'has_archive'  => false,
 				'show_in_rest' => true, // to enable the Gutenberg editor
 				'rewrite'      => [
-					'slug' => __( 'example-post-type', Plugin::get_text_domain() ),
+					'slug' => __( 'event', Plugin::get_text_domain() ),
 				],
 
 			]
 		);
+	}
 
+	/**
+	 * register post type
+	 *
+	 * @return void
+	 */
+	public function register_post_type_object() {
 		$this->post_type_object->register();
 	}
 
@@ -68,7 +76,7 @@ class Events {
 	 * @return void
 	 */
 	public function meta_data() {
-		$example_post_type_meta = new ExamplePostTypeMeta( $this->post_type_object, self::get_post_type() );
+		$event_meta = new EventsMeta( $this->post_type_object, self::get_post_type() );
 	}
 
 	/**
@@ -86,7 +94,7 @@ class Events {
 	 * @return void
 	 */
 	public function archive_settings() {
-		$case_archive_settings = new ArchiveSettings( self::get_post_type() );
+		//$case_archive_settings = new ArchiveSettings( self::get_post_type() );
 	}
 
 }

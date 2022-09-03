@@ -17,6 +17,26 @@ namespace BTBEvents\Plugin;
 
 use BTBEvents\Plugin\Plugin;
 
+// Do not access this file directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+require 'kint.phar';
+
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+} else {
+	add_action(
+		'admin_notices',
+		function () {
+			printf( '<div class="error"><p>Could not find vendor folder in %s</p></div>', dirname( __FILE__ ) );
+		}
+	);
+
+	return;
+}
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -27,7 +47,8 @@ use BTBEvents\Plugin\Plugin;
 function create_block_btb_events_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'create_block_btb_events_block_init' );
+
+add_action( 'init', __NAMESPACE__ . '\create_block_btb_events_block_init' );
 
 // Register plugin specific hooks
 register_activation_hook( __FILE__, [ __NAMESPACE__ . '\Plugin', 'activate' ] );

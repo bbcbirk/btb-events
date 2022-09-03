@@ -1,6 +1,6 @@
 <?php
 
-namespace BTBEvents\Plugin\Core;
+namespace BTBEvents\Plugin\Frontend;
 
 use BTBEvents\Plugin\Plugin;
 
@@ -14,7 +14,7 @@ class Bootstrap {
 	 * Run core bootstrap hooks.
 	 */
 	public function init() {
-		new PostTypes\Events();
+		new Events();
 	}
 
 }

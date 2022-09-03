@@ -50,6 +50,14 @@ class Plugin {
 		if ( class_exists( __NAMESPACE__ . '\Core\Bootstrap' ) ) {
 			$core = new Core\Bootstrap;
 		}
+
+		if ( is_admin() ) {
+
+		} else {
+			if ( class_exists( __NAMESPACE__ . '\Frontend\Bootstrap' ) ) {
+				$frontend = new Frontend\Bootstrap;
+			}
+		}
 	}
 
 	public static function activate() {

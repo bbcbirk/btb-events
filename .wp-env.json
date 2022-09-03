@@ -1,0 +1,6 @@
+{
+    "plugins": [
+        ".",
+        "https://downloads.wordpress.org/plugin/cmb2.zip"
+    ]
+}
