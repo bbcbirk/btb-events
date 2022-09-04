@@ -71,6 +71,13 @@ class EventsMeta {
 				'name' => __( 'Event end', Plugin::get_text_domain() ),
 				'type' => 'text_datetime_timestamp',
 				'desc' => __( 'If left unset, the duration is set to 2 hours in the calendar.', Plugin::get_text_domain() ),
+				'attributes' => [
+					'data-timepicker' => json_encode(
+						[
+							'timeFormat' => 'HH:mm',
+						]
+					),
+				],
 			],
 			[
 				'id'   => self::get_meta_key( 'location' ),
