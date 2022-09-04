@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
+class ComposerStaticInit60347ac48e4570b1c8ade2f0880a0456
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -13,7 +13,7 @@ class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
         ),
         'B' => 
         array (
-            'BTBEvents\\Plugin\\' => 17,
+            'BTB\\Events\\' => 11,
         ),
     );
 
@@ -22,9 +22,19 @@ class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
         array (
             0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
         ),
-        'BTBEvents\\Plugin\\' => 
+        'BTB\\Events\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/inc',
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'Mustache' => 
+            array (
+                0 => __DIR__ . '/..' . '/mustache/mustache/src',
+            ),
         ),
     );
 
@@ -35,9 +45,10 @@ class ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita606c1cdbcae9bffb1c75f53784b6386::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit60347ac48e4570b1c8ade2f0880a0456::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit60347ac48e4570b1c8ade2f0880a0456::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit60347ac48e4570b1c8ade2f0880a0456::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit60347ac48e4570b1c8ade2f0880a0456::$classMap;
 
         }, null, ClassLoader::class);
     }

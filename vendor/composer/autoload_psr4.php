@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'PostTypes\\' => array($vendorDir . '/jjgrainger/posttypes/src'),
-    'BTBEvents\\Plugin\\' => array($baseDir . '/inc'),
+    'BTB\\Events\\' => array($baseDir . '/src'),
 );

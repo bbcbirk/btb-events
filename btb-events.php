@@ -13,9 +13,9 @@
  * @package           create-block
  */
 
-namespace BTBEvents\Plugin;
+namespace BTB\Events;
 
-use BTBEvents\Plugin\Plugin;
+use BTB\Events\Plugin;
 
 // Do not access this file directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,19 +36,6 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 
 	return;
 }
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function create_block_btb_events_block_init() {
-	register_block_type( __DIR__ . '/build' );
-}
-
-add_action( 'init', __NAMESPACE__ . '\create_block_btb_events_block_init' );
 
 // Register plugin specific hooks
 register_activation_hook( __FILE__, [ __NAMESPACE__ . '\Plugin', 'activate' ] );

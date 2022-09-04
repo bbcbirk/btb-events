@@ -14,11 +14,12 @@
     }
   ],
   "require": {
-    "jjgrainger/posttypes": "2.*"
+    "jjgrainger/posttypes": "2.*",
+    "mustache/mustache": "~2.5"
   },
   "autoload": {
     "psr-4": {
-      "BTBEvents\\Plugin\\": "inc/"
+      "BTB\\Events\\": "src/"
     }
   }
 }
