@@ -81,7 +81,7 @@ class Events {
 						<?php _e( 'Location', Plugin::get_text_domain() ); ?>
 					</th>
 					<td>
-						<?php echo '<a href="http://google.com/maps/search/' . urlencode_deep( $meta[ EventsMeta::get_meta_key( 'location' ) ] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $meta[ EventsMeta::get_meta_key( 'location' ) ] ) . '</a>'; ?>
+						<?php echo '<a href="https://google.com/maps/search/' . urlencode_deep( $meta[ EventsMeta::get_meta_key( 'location' ) ] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $meta[ EventsMeta::get_meta_key( 'location' ) ] ) . '</a>'; ?>
 					</td>
 				</tr>
 				<?php endif; ?>

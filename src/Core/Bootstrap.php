@@ -16,9 +16,10 @@ class Bootstrap {
 	 */
 	public function init() {
 		( new Assets )->register();
-		( new Assets )->load();
+		( new Assets )->load_block_assets();
 		new PostTypes\Events();
 		new REST\Events();
+		new Blocks\Bootstrap();
 
 		add_action( 'wp', [ $this, 'test' ] );
 	}

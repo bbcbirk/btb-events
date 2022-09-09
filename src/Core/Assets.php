@@ -29,10 +29,17 @@ class Assets {
 	 * @return array
 	 */
 	public function get_options(): array {
-		return [
+		$options = [
 			'wpAPI' => get_rest_url(),
 			'nonce' => wp_create_nonce( $this->get_nonce_seed() ),
 		];
+
+		if ( is_admin() ) {
+			$options = apply_filters( 'btb_events_base_options', $options );
+			return apply_filters( 'btb_events_base-admin_options', $options );
+		} else {
+			return apply_filters( 'btb_events_base_options', $options );
+		}
 	}
 
 	/**
@@ -96,6 +103,16 @@ class Assets {
 			$this->load_js();
 			$this->load_css();
 		}
+	}
+
+	/**
+	 * Load
+	 *
+	 * @return void
+	 */
+	public function load_block_assets() {
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_block_js' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_block_css' ] );
 	}
 
 	/**
@@ -192,16 +209,17 @@ class Assets {
 	public function register_js() {
 		// wp_register_script( $this->get_hook( 'select2' ), 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js', [ 'jquery' ], '4.0.12', true );
 		wp_register_script( $this->get_hook( 'fullcalendar' ), 'https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js', [ 'jquery' ], '5.10.2', true );
+		wp_register_script( $this->get_hook( 'add-to-calendar-button' ), 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@1', [], '1.15.0', true );
 
 		$script_inflix = ( file_exists( Plugin::plugin_path() . '/assets/dist/js/base.min.js' ) ? '.min' : '' );
 
-		wp_register_script( $this->get_hook( 'base' ), Plugin::plugin_url() . '/assets/dist/js/base' . $script_inflix . '.js', [ 'jquery' ], '1.0', true );
+		wp_register_script( $this->get_hook( 'base' ), Plugin::plugin_url() . '/assets/dist/js/base' . $script_inflix . '.js', [ 'jquery', $this->get_hook( 'add-to-calendar-button' ) ], '1.0', true );
 
 		wp_localize_script( $this->get_hook( 'base' ), $this->get_hook( 'js' ), $this->get_options() );
 
-		wp_register_script( $this->get_hook( 'base-admin' ), Plugin::plugin_url() . '/assets/dist/js/base-admin' . $script_inflix . '.js', [ 'jquery', $this->get_hook( 'fullcalendar' ) ], '1.0', true );
+		wp_register_script( $this->get_hook( 'base_admin' ), Plugin::plugin_url() . '/assets/dist/js/base-admin' . $script_inflix . '.js', [ 'jquery', $this->get_hook( 'fullcalendar' ) ], '1.0', true );
 
-		wp_localize_script( $this->get_hook( 'base-admin' ), $this->get_hook( 'js' ), apply_filters( $this->get_hook( 'base-admin' ) . '_options', $this->get_options() ) );
+		wp_localize_script( $this->get_hook( 'base_admin' ), $this->get_hook( 'js' ), apply_filters( $this->get_hook( 'base_admin' ) . '_options', $this->get_options() ) );
 	}
 
 	/**
@@ -211,13 +229,14 @@ class Assets {
 	 */
 	public function register_css() {
 		// wp_register_style( $this->get_hook( 'select2' ), 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css' );
-		wp_register_style( $this->get_hook( 'fullcalendar' ), 'https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' );
+		wp_register_style( $this->get_hook( 'fullcalendar' ), 'https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css', [], '5.10.2' );
+		wp_register_style( $this->get_hook( 'add-to-calendar-button' ), 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@1/assets/css/atcb.min.css', [], '1.15.0' );
 
 		$style_inflix = ( file_exists( Plugin::plugin_path() . '/assets/dist/css/base.min.css' ) ? '.min' : '' );
 
 		wp_register_style( $this->get_hook( 'base' ), Plugin::plugin_url() . '/assets/dist/css/base' . $style_inflix . '.css', [], false, 'all' );
 
-		wp_register_style( $this->get_hook( 'base-admin' ), Plugin::plugin_url() . '/assets/dist/css/base-admin' . $style_inflix . '.css', [], false, 'all' );
+		wp_register_style( $this->get_hook( 'base_admin' ), Plugin::plugin_url() . '/assets/dist/css/base-admin' . $style_inflix . '.css', [], false, 'all' );
 	}
 
 	/**
@@ -247,7 +266,7 @@ class Assets {
 	 */
 	public function enqueue_admin_js() {
 		wp_enqueue_script( $this->get_hook( 'fullcalendar' ) );
-		wp_enqueue_script( $this->get_hook( 'base-admin' ) );
+		wp_enqueue_script( $this->get_hook( 'base_admin' ) );
 	}
 
 	/**
@@ -257,7 +276,30 @@ class Assets {
 	 */
 	public function enqueue_admin_css() {
 		wp_enqueue_style( $this->get_hook( 'fullcalendar' ) );
-		wp_enqueue_style( $this->get_hook( 'base-admin' ) );
+		wp_enqueue_style( $this->get_hook( 'base_admin' ) );
+	}
+
+	/**
+	 * Enqueue block js
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_js() {
+		if ( has_block( 'btb/event-teaser' ) ) {
+			wp_enqueue_script( $this->get_hook( 'base' ) );
+			wp_enqueue_script( $this->get_hook( 'add-to-calendar-button' ) );
+		}
+	}
+
+	/**
+	 * Enqueue block css
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_css() {
+		if ( has_block( 'btb/event-teaser' ) ) {
+			wp_enqueue_style( $this->get_hook( 'add-to-calendar-button' ) );
+		}
 	}
 
 }

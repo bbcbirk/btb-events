@@ -1,0 +1,7 @@
+{{% FILTERS}}
+<div class="btb-event_teaser block-{{attributes.id}}">
+    {{#attributes.title}}
+    <h3 class="btb-event_teaser__title">{{{attributes.title | clean.kses_post}}}</h3>
+    {{/attributes.title}}
+    {{> event_list}}
+</div>

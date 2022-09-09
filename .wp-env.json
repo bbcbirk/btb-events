@@ -1,6 +1,7 @@
 {
     "plugins": [
         ".",
-        "https://downloads.wordpress.org/plugin/cmb2.zip"
+        "https://downloads.wordpress.org/plugin/cmb2.zip",
+        "https://downloads.wordpress.org/plugin/accessibility-checker.zip"
     ]
 }

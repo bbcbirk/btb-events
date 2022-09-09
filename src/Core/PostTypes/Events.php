@@ -6,6 +6,7 @@ use BTB\Events\Core\PostTypes\ArchiveSettings;
 use BTB\Events\Core\PostTypes\Meta\EventsMeta;
 use BTB\Events\Plugin;
 use PostTypes\PostType;
+use BTB\Events\Core\Assets;
 
 class Events {
 
@@ -19,6 +20,7 @@ class Events {
 		$this->taxonomy();
 		$this->archive_settings();
 		$this->register_post_type_object();
+		add_action( 'admin_enqueue_scripts', [ $this, 'load_assets' ], 1, 5 );
 	}
 
 	public static function get_post_type() {
@@ -95,6 +97,17 @@ class Events {
 	 */
 	public function archive_settings() {
 		//$case_archive_settings = new ArchiveSettings( self::get_post_type() );
+	}
+
+	/**
+	 * Load the archive settings page
+	 *
+	 * @return void
+	 */
+	public function load_assets( $hook_suffix ) {
+		if ( $hook_suffix == 'btb_events_page_calendar_view' ) {
+			( new Assets )->load();
+		}
 	}
 
 }
