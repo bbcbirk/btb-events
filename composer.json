@@ -1,6 +1,7 @@
 {
   "name": "wp/btb-events",
   "description": "",
+  "version": "v1.0.1",
   "type": "wordpress-plugin",
   "keywords": ["wordpress", "plugin"],
   "repositories": [
