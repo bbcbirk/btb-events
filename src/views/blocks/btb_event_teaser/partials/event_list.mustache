@@ -1,0 +1,58 @@
+{{% FILTERS}}
+{{#events}}
+<div class="btb-event_teaser__event">
+    <div class="btb-event_teaser__event__date">
+        {{#date}}
+        <time datetime="{{#datetime}}{{datetime | esc.attr}}{{/datetime}}">{{{date | clean.kses_post}}}</time>
+        {{/date}}
+    </div>
+    <div class="btb-event_teaser__event__info">
+        <div class="btb-event_teaser__event__text">
+            <p class="btb-event_teaser__event__primary-info">
+                {{#title}}
+                <span class="btb-event_teaser__event__title">{{{title | clean.kses_post}}}</span>
+                {{/title}}
+                {{#artist}}
+                <span class="btb-event_teaser__event__artist"> - {{{artist | clean.kses_post}}}</span>
+                {{#time}}
+                <time class="btb-event_teaser__event__time"
+                    datetime="{{#datetime}}{{datetime | esc.attr}}{{/datetime}}">{{{time | clean.kses_post}}}</time>
+                {{/time}}
+                {{/artist}}
+                {{^artist}}
+                {{#time}}
+                <time class="btb-event_teaser__event__time"
+                    datetime="{{#datetime}}{{datetime | esc.attr}}{{/datetime}}"> -
+                    {{{time | clean.kses_post}}}</time>
+                {{/time}}
+                {{/artist}}
+            </p>
+            {{#featuring}}
+            <p class="btb-event_teaser__event__featuring">{{{featuring | clean.kses_post}}}</p>
+            {{/featuring}}
+            {{#location}}
+            <a class="btb-event_teaser__event__location" href="{{{location_url | esc.url}}}" target="_blank"
+                rel="noopener noreferrer">{{{location | clean.kses_post}}}</a>
+            {{/location}}
+        </div>
+        <div class="btb-event_teaser__event__buttons">
+            {{#permalink}}
+            <a class="btb_event_button btb_event_button_link" href="{{permalink | esc.url}}">{{{readmore |
+                clean.kses_post}}}</a>
+            {{/permalink}}
+            {{#attributes.displayAddToCalendar}}
+            <span class="btb_event_button btb_event_add_to_calendar" data-event-settings="{{add_to_calendar_setting}}"
+                data-event-id="{{id}}" {{#add_to_calendar_dashicon}}title="{{{add_to_calendar_text | clean.kses_post}}}"
+                {{/add_to_calendar_dashicon}} tabindex="0" role="button" aria-pressed="false" aria-haspopup="listbox">
+                {{#add_to_calendar_dashicon}}
+                <span class="dashicons {{add_to_calendar_dashicon | esc.attr}}"></span>
+                {{/add_to_calendar_dashicon}}
+                {{^add_to_calendar_dashicon}}
+                {{{add_to_calendar_text | clean.kses_post}}}
+                {{/add_to_calendar_dashicon}}
+            </span>
+            {{/attributes.displayAddToCalendar}}
+        </div>
+    </div>
+</div>
+{{/events}}

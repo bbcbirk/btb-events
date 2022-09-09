@@ -55,29 +55,33 @@ class EventsMeta {
 	public static function fields() {
 		return [
 			[
-				'id'         => self::get_meta_key( 'start' ),
-				'name'       => __( 'Event start', Plugin::get_text_domain() ),
-				'type'       => 'text_datetime_timestamp',
-				'attributes' => [
+				'id'          => self::get_meta_key( 'start' ),
+				'name'        => __( 'Event start', Plugin::get_text_domain() ),
+				'type'        => 'text_datetime_timestamp',
+				'attributes'  => [
 					'data-timepicker' => json_encode(
 						[
 							'timeFormat' => 'HH:mm',
 						]
 					),
 				],
+				'time_format' => 'H:i',
+				'date_format' => 'd-m-Y',
 			],
 			[
-				'id'         => self::get_meta_key( 'end' ),
-				'name'       => __( 'Event end', Plugin::get_text_domain() ),
-				'type'       => 'text_datetime_timestamp',
-				'desc'       => __( 'If left unset, the duration is set to 2 hours in the calendar.', Plugin::get_text_domain() ),
-				'attributes' => [
+				'id'          => self::get_meta_key( 'end' ),
+				'name'        => __( 'Event end', Plugin::get_text_domain() ),
+				'type'        => 'text_datetime_timestamp',
+				'desc'        => __( 'If left unset, the duration is set to 2 hours in the calendar.', Plugin::get_text_domain() ),
+				'attributes'  => [
 					'data-timepicker' => json_encode(
 						[
 							'timeFormat' => 'HH:mm',
 						]
 					),
 				],
+				'time_format' => 'H:i',
+				'date_format' => 'd-m-Y',
 			],
 			[
 				'id'   => self::get_meta_key( 'location' ),
