@@ -105,7 +105,7 @@ class Events {
 	 * @return void
 	 */
 	public function load_assets( $hook_suffix ) {
-		if ( $hook_suffix == 'btb_events_page_calendar_view' ) {
+		if ( $hook_suffix == 'btb_events_page_calendar_view' || ( $hook_suffix == 'edit.php' && get_post_type() == self::get_post_type() ) ) {
 			( new Assets )->load();
 		}
 	}

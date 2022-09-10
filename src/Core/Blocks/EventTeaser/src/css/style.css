@@ -105,10 +105,10 @@
 		background-color: #000;
 		border: 1px solid #000;
 		color: #fff;
-	}
 
-	span.dashicons {
-		transition: none;
+		.calendar_icon {
+			fill: #fff !important;
+		}
 	}
 }
 

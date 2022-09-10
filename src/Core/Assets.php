@@ -257,6 +257,7 @@ class Assets {
 	public function enqueue_css() {
 		// wp_enqueue_style( $this->get_hook( 'select2' ) );
 		wp_enqueue_style( $this->get_hook( 'base' ) );
+		wp_enqueue_style( $this->get_hook( 'add-to-calendar-button' ) );
 	}
 
 	/**
