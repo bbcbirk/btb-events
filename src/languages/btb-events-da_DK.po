@@ -1,0 +1,322 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Boilerplate\n"
+"POT-Creation-Date: 2022-09-10 19:07+0200\n"
+"PO-Revision-Date: 2022-09-10 19:25+0200\n"
+"Last-Translator: Birk Thestrup Blauner <birkblauner@gmail.com>\n"
+"Language-Team: Birk Thestrup Blauner <birkblauner@gmail.com>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_x;_e;esc_html__;esc_attr__;esc_attr_e;_ex;"
+"esc_attr_x;esc_html_x;_n;_nx\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: */node_modules\n"
+
+#: Abstracts/BlockBase.php:133
+msgid "The block needs a name"
+msgstr "Blokken mangler et navn"
+
+#: Abstracts/BlockBase.php:255
+#, php-format
+msgid "%s Blocks"
+msgstr "%s Blokke"
+
+#: Abstracts/RestBase.php:88 Abstracts/RestBase.php:105 Core/REST/Events.php:69
+msgid "Unauthorized"
+msgstr "Uautoriseret"
+
+#: Abstracts/RestBase.php:145
+msgid "Authorization header not found."
+msgstr "Autoriserings header ikke fundet."
+
+#: Abstracts/RestBase.php:160
+msgid "Authorization header malformed."
+msgstr "Autoriserings header malformeret."
+
+#: Abstracts/RestBase.php:170
+msgid "Authorization failed."
+msgstr "Autorisering fejlede."
+
+#: Admin/EventCalendar/EventCalendar.php:24
+#: Admin/EventCalendar/EventCalendar.php:36
+msgid "Calendar View"
+msgstr "Kalender Oversigt"
+
+#: Admin/EventCalendar/EventCalendar.php:25
+msgid "Calendar"
+msgstr "Kalender"
+
+#: Core/Blocks/EventTeaser/Block.php:57
+msgid "List of events."
+msgstr "Liste af events."
+
+#: Core/Blocks/EventTeaser/Block.php:109
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:24
+msgid "Descending"
+msgstr "Aftagende"
+
+#: Core/Blocks/EventTeaser/Block.php:113
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:37
+msgid "Date"
+msgstr "Dato"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:19
+#: Core/PostTypes/Events.php:50
+msgid "Events"
+msgstr "Events"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:21
+msgid "Order"
+msgstr "Rækkefølge"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:25
+msgid "Ascending"
+msgstr "Stigende"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:34
+msgid "Order By"
+msgstr "Rækkefølge efter"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:38
+msgid "Title"
+msgstr "Titel"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:48
+msgid "Number of Events"
+msgstr "Antal Events"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:62
+msgid "Offset"
+msgstr "Forskydning"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:75
+msgid "Add to calendar button"
+msgstr "Tilføj til kalender knap"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:76
+msgid "Display add to calendar button."
+msgstr "Vis tilføj til kalender knap."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:76
+msgid "Hide add to calendar button."
+msgstr "Gem tilføj til kalender knap."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:84
+msgid "Color Settings"
+msgstr "Farve Indstillinger"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:90
+msgid "Background Color"
+msgstr "Baggrunds Farve"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:95
+msgid "Text Color"
+msgstr "Tekst Farve"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:100
+msgid "Spacing"
+msgstr "Afstand"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:102
+msgid "Spacing Top"
+msgstr "Afstand Top"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:103
+msgid "Block has top spacing."
+msgstr "Blok har top afstand."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:103
+msgid "Block does not have top spacing."
+msgstr "Blok har ikke top afstand."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:110
+msgid "Spacing Bottom"
+msgstr "Afstand Bund"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:111
+msgid "Block has bottom spacing."
+msgstr "Blok har bund afstand."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector-controls.js:111
+msgid "Block does not have bottom spacing."
+msgstr "Blok har ikke bund afstand."
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector_advanced-controls.js:13
+msgid "HTML Anchor"
+msgstr "HTML Anker"
+
+#: Core/Blocks/EventTeaser/src/js/editor/inspector_advanced-controls.js:14
+msgid "Anchors lets you link directly to a section on a page."
+msgstr "Anker lader dig linke direkte til en section på en side."
+
+#: Core/Data/Events.php:74 Core/PostTypes/Meta/EventsMeta.php:137
+#: Frontend/Events.php:133
+msgid "Read More"
+msgstr "Læs Mere"
+
+#: Core/Data/Events.php:78
+#, php-format
+msgid "Kl. %s"
+msgstr "Kl. %s"
+
+#: Core/Data/Events.php:85 Core/Data/Events.php:162 Core/Data/Events.php:168
+#: Core/PostTypes/Meta/EventsMeta.php:185
+msgid "Add to Calendar"
+msgstr "Tilføj til Kalender"
+
+#: Core/PostTypes/ArchiveSettings.php:19 Core/PostTypes/ArchiveSettings.php:22
+msgid "Archive Settings"
+msgstr "Arkiv Indstillinger"
+
+#: Core/PostTypes/ArchiveSettings.php:62
+msgid "Archive title"
+msgstr "Arkiv titel"
+
+#: Core/PostTypes/ArchiveSettings.php:68
+msgid "Archive Content (before)"
+msgstr "Arkiv Indhold (før)"
+
+#: Core/PostTypes/ArchiveSettings.php:74
+msgid "Archive Content (after)"
+msgstr "Arkiv Indhold (efter)"
+
+#: Core/PostTypes/Events.php:49
+msgid "Event"
+msgstr "Event"
+
+#: Core/PostTypes/Events.php:59
+msgid "event"
+msgstr "event"
+
+#: Core/PostTypes/Meta/EventsMeta.php:18
+msgid "Event Meta"
+msgstr "Event Meta"
+
+#: Core/PostTypes/Meta/EventsMeta.php:60 Core/PostTypes/Meta/EventsMeta.php:183
+msgid "Event start"
+msgstr "Event start"
+
+#: Core/PostTypes/Meta/EventsMeta.php:74
+msgid "Event end"
+msgstr "Event slut"
+
+#: Core/PostTypes/Meta/EventsMeta.php:76
+msgid "If left unset, the duration is set to 2 hours in the calendar."
+msgstr "Hvis tom vil længden fremstå som 2 timer i kalenderen."
+
+#: Core/PostTypes/Meta/EventsMeta.php:89 Core/PostTypes/Meta/EventsMeta.php:184
+msgid "Location"
+msgstr "Lokation"
+
+#: Core/PostTypes/Meta/EventsMeta.php:94
+msgid "Artist"
+msgstr "Kunstner"
+
+#: Core/PostTypes/Meta/EventsMeta.php:99
+msgid "Featuring"
+msgstr "Med-Kunstnere"
+
+#: Core/PostTypes/Meta/EventsMeta.php:102
+msgid "Featuring John Doe"
+msgstr "Med John Doe"
+
+#: Core/PostTypes/Meta/EventsMeta.php:107 Frontend/Events.php:102
+msgid "Ticket Price"
+msgstr "Billet Pris"
+
+#: Core/PostTypes/Meta/EventsMeta.php:114
+msgid "Link to ticket vendor"
+msgstr "Link til billet forhandler"
+
+#: Core/PostTypes/Meta/EventsMeta.php:116
+msgid "Link to a ticket vendor, like ticketmaster."
+msgstr "Link til en billet forhandler, såsom ticketmaster."
+
+#: Core/PostTypes/Meta/EventsMeta.php:120
+msgid "Ticket Link text"
+msgstr "Billet Link tekst"
+
+#: Core/PostTypes/Meta/EventsMeta.php:123 Frontend/Events.php:118
+msgid "Buy Tickets"
+msgstr "Køb Billetter"
+
+#: Core/PostTypes/Meta/EventsMeta.php:128 Frontend/Events.php:126
+msgid "Link to event"
+msgstr "Link til event"
+
+#: Core/PostTypes/Meta/EventsMeta.php:130
+msgid "Link to a event, like festival webpage."
+msgstr "Link til et event, såsom en festival webside."
+
+#: Core/PostTypes/Meta/EventsMeta.php:134
+msgid "Link text"
+msgstr "Link tekst"
+
+#: Core/PostTypes/Meta/EventsMeta.php:142
+msgid "Display Add to Calendar"
+msgstr "Vis Tilføj til Kalender"
+
+#: Core/PostTypes/Meta/EventsMeta.php:143
+msgid "Display Add to Calendar button."
+msgstr "Vis Tilføj til Kalender knap."
+
+#: Core/PostTypes/Meta/EventsMeta.php:147
+#: Core/PostTypes/Meta/EventsMeta.php:168
+msgid "Display"
+msgstr "Vis"
+
+#: Core/PostTypes/Meta/EventsMeta.php:148
+#: Core/PostTypes/Meta/EventsMeta.php:169
+msgid "Do not Display"
+msgstr "Vis ikke"
+
+#: Core/PostTypes/Meta/EventsMeta.php:153
+msgid "Display Type"
+msgstr "Visnings Type"
+
+#: Core/PostTypes/Meta/EventsMeta.php:154
+msgid "Private events will display as booked with no information of the event."
+msgstr ""
+"Private events vil blive vist som booket med ingen information om eventet."
+
+#: Core/PostTypes/Meta/EventsMeta.php:158
+msgid "Public"
+msgstr "Offentlig"
+
+#: Core/PostTypes/Meta/EventsMeta.php:159
+msgid "Private"
+msgstr "Privat"
+
+#: Core/PostTypes/Meta/EventsMeta.php:164
+msgid "Display in calendar"
+msgstr "Vis i kalender"
+
+#: Core/PostTypes/Meta/EventsMeta.php:215
+msgid "Event end is before Event start"
+msgstr "Event slut er før Event start"
+
+#: Core/REST/Events.php:146
+msgid "Private Event"
+msgstr "Privat Event"
+
+#: Frontend/Events.php:58
+msgid "Who"
+msgstr "Hvem"
+
+#: Frontend/Events.php:72
+msgid "When"
+msgstr "Hvornår"
+
+#: Frontend/Events.php:93
+msgid "Where"
+msgstr "Hvor"
+
+#: Frontend/Events.php:111
+msgid "Ticket Link"
+msgstr "Billet Link"
