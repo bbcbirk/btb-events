@@ -21,11 +21,13 @@ class Bootstrap {
 		new REST\Events();
 		new Blocks\Bootstrap();
 
-		add_action( 'wp', [ $this, 'test' ] );
+		add_action( 'wp', [ $this, 'load_event_assets' ] );
 	}
 
-	public function test() {
-		//d( EventsMeta::get_meta_data( get_the_ID() ) );
+	public function load_event_assets() {
+		if ( is_singular( 'btb_events' ) ) {
+			( new Assets )->load();
+		}
 	}
 
 }

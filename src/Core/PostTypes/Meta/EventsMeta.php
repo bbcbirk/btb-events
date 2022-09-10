@@ -3,6 +3,7 @@
 namespace BTB\Events\Core\PostTypes\Meta;
 
 use BTB\Events\Plugin;
+use BTB\Events\Core\Data\Events as DATA;
 
 class EventsMeta {
 
@@ -104,9 +105,23 @@ class EventsMeta {
 			[
 				'id'           => self::get_meta_key( 'price' ),
 				'name'         => __( 'Ticket Price', Plugin::get_text_domain() ),
-				'type'         => 'text_money',
+				'type'         => 'text',
 				'after_field'  => 'DKK',
 				'before_field' => ' ',
+			],
+			[
+				'id'   => self::get_meta_key( 'ticket_link' ),
+				'name' => __( 'Link to ticket vendor', Plugin::get_text_domain() ),
+				'type' => 'text_url',
+				'desc' => __( 'Link to a ticket vendor, like ticketmaster.', Plugin::get_text_domain() ),
+			],
+			[
+				'id'         => self::get_meta_key( 'ticket_link_text' ),
+				'name'       => __( 'Ticket Link text', Plugin::get_text_domain() ),
+				'type'       => 'text',
+				'attributes' => [
+					'placeholder' => __( 'Buy Tickets', Plugin::get_text_domain() ),
+				],
 			],
 			[
 				'id'   => self::get_meta_key( 'link' ),
@@ -120,6 +135,17 @@ class EventsMeta {
 				'type'       => 'text',
 				'attributes' => [
 					'placeholder' => __( 'Read More', Plugin::get_text_domain() ),
+				],
+			],
+			[
+				'id'      => self::get_meta_key( 'show_add_to_calendar' ),
+				'name'    => __( 'Display Add to Calendar', Plugin::get_text_domain() ),
+				'desc'    => __( 'Display Add to Calendar button.', Plugin::get_text_domain() ),
+				'type'    => 'radio_inline',
+				'default' => true,
+				'options' => [
+					true  => __( 'Display', Plugin::get_text_domain() ),
+					false => __( 'Do not Display', Plugin::get_text_domain() ),
 				],
 			],
 			[
@@ -154,8 +180,9 @@ class EventsMeta {
 	public function add_columns() {
 		$this->post_type_object->columns()->add(
 			[
-				self::get_meta_key( 'start' )    => __( 'Event start', Plugin::get_text_domain() ),
-				self::get_meta_key( 'location' ) => __( 'Location', Plugin::get_text_domain() ),
+				self::get_meta_key( 'start' )           => __( 'Event start', Plugin::get_text_domain() ),
+				self::get_meta_key( 'location' )        => __( 'Location', Plugin::get_text_domain() ),
+				self::get_meta_key( 'add_to_calendar' ) => __( 'Add to Calendar', Plugin::get_text_domain() ),
 			]
 		);
 
@@ -180,6 +207,18 @@ class EventsMeta {
 			}
 		);
 
+		$this->post_type_object->columns()->populate(
+			self::get_meta_key( 'add_to_calendar' ),
+			function ( $column, $post_id ) {
+				$button = DATA::get_add_to_calendar_button( $post_id );
+				if ( empty( $button ) ) {
+					_e( 'Event end is before Event start', Plugin::get_text_domain() );
+				} else {
+					echo $button;
+				}
+			}
+		);
+
 		//Sortable
 		$this->post_type_object->columns()->sortable(
 			[
@@ -190,8 +229,9 @@ class EventsMeta {
 		//Order
 		$this->post_type_object->columns()->order(
 			[
-				self::get_meta_key( 'location' ) => 2,
-				self::get_meta_key( 'start' )    => 3,
+				self::get_meta_key( 'location' )        => 2,
+				self::get_meta_key( 'start' )           => 3,
+				self::get_meta_key( 'add_to_calendar' ) => 4,
 			]
 		);
 	}
