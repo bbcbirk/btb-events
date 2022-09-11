@@ -1,6 +1,6 @@
 {
 	"name": "btb-events",
-	"version": "1.0.0",
+	"version": "v1.0.3",
 	"description": "Example static block scaffolded with Create Block tool.",
 	"license": "GPL-2.0-or-later",
 	"main": "index.js",
