@@ -1,3 +1,9 @@
 .btb_event_add_to_calendar {
 	cursor: pointer;
 }
+
+.calendar_icon {
+	width: 1rem;
+	height: 1rem;
+	fill: var(--wp--preset--color--foreground);
+}

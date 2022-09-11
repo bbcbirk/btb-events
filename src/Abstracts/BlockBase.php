@@ -139,7 +139,7 @@ abstract class BlockBase {
 		add_action( 'enqueue_block_assets', [ $this, 'block_assets' ] );
 
 		// Add block categories
-		add_filter( 'block_categories', [ $this, 'add_block_category' ], 10, 2 );
+		add_filter( 'block_categories_all', [ $this, 'add_block_category' ], 10, 2 );
 
 		// create a dynamic block using PHP
 		if ( function_exists( 'register_block_type' ) ) {
@@ -244,11 +244,11 @@ abstract class BlockBase {
 	 * add_filter( 'mosaik_blocks_category', function( $categories ) { $categories['mosaik-blocks']['title'] = 'Mosaik Blocks'; return $categories; } );
 	 *
 	 * @param array $categories Array of block categories.
-	 * @param array $post Post being loaded
+	 * @param array $block_editor_context  WP_Block_Editor_Context
 	 *
 	 * @return array The updated categories.
 	 */
-	public function add_block_category( $categories, $post ) {
+	public function add_block_category( $categories, $block_editor_context ) {
 
 		$block_category = [
 			'slug'  => $this->get_category_slug(),

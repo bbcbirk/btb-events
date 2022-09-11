@@ -36,7 +36,7 @@ class Assets {
 
 		if ( is_admin() ) {
 			$options = apply_filters( 'btb_events_base_options', $options );
-			return apply_filters( 'btb_events_base-admin_options', $options );
+			return apply_filters( 'btb_events_base_admin_options', $options );
 		} else {
 			return apply_filters( 'btb_events_base_options', $options );
 		}

@@ -86,6 +86,12 @@
 	}
 }
 
+.calendar_icon {
+	width: 1rem;
+	height: 1rem;
+	fill: var(--wp--preset--color--foreground);
+}
+
 .btb_event_button {
 	background-color: transparent;
 	border: 1px solid #000;

@@ -15,7 +15,7 @@ class EventCalendar {
 		//Make an admin sub_menu page for a calendar view of the events
 		add_action( 'admin_menu', [ $this, 'add_event_subpages' ] );
 		add_action( 'btb_admin_calendar_view', [ $this, 'display_admin_calendar' ] );
-		add_filter( 'btb_events_base-admin_options', [ $this, 'add_events_to_calendar_view' ] );
+		add_filter( 'btb_events_base_admin_options', [ $this, 'add_events_to_calendar_view' ] );
 	}
 
 	public function add_event_subpages() {
