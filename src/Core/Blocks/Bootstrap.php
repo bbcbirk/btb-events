@@ -16,6 +16,7 @@ class Bootstrap {
 	public function init() {
 
 		new EventTeaser\Block();
+		new Calendar\Block();
 
 	}
 

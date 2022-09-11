@@ -1,0 +1,18 @@
+.btb-calendar {
+	/* CSS */
+}
+
+.btb-blocks.calendar {
+	&.has-background-color {
+		padding-inline: 1rem;
+		padding-block: var(--wp--style--block-gap);
+	}
+
+	&.has-spacing-top {
+		margin-block-start: var(--wp--custom--spacing--large);
+	}
+
+	&.has-spacing-bottom {
+		margin-block-end: var(--wp--custom--spacing--large);
+	}
+}

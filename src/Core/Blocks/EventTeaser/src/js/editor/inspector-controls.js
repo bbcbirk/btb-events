@@ -13,7 +13,6 @@ export const Inspector = (props) => {
     displayAddToCalendar,
   } = attributes;
 
-  console.log(wpquery);
   return (
     <InspectorControls>
       <PanelBody title={__('Events')}>

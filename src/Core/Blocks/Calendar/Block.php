@@ -1,6 +1,6 @@
 <?php
 
-namespace BTB\Events\Core\Blocks\EventTeaser;
+namespace BTB\Events\Core\Blocks\Calendar;
 
 use BTB\Events\Plugin;
 use BTB\Events\Abstracts\BlockBase;
@@ -23,7 +23,7 @@ class Block extends BlockBase {
 	 *
 	 * @var string
 	 */
-	protected $block_name = 'Event Teaser';
+	protected $block_name = 'Calendar';
 
 	/**
 	 * Block icon, dashicon classes used
@@ -54,7 +54,7 @@ class Block extends BlockBase {
 	protected $debug = false;
 
 	public function init() {
-		$this->set_block_description( __( 'List of events.', Plugin::get_text_domain() ) );
+		$this->set_block_description( __( 'Calendar with events.', Plugin::get_text_domain() ) );
 	}
 
 	/**
@@ -97,39 +97,6 @@ class Block extends BlockBase {
 				'type'    => 'string',
 				'default' => '',
 			],
-			'wpquery'              => [
-				'type'    => 'object',
-				'default' => [
-					'order'         => [
-						'value' => 'desc',
-						'label' => __( 'Descending', Plugin::get_text_domain() ),
-					],
-					'orderBy'       => [
-						'value' => 'date',
-						'label' => __( 'Date', Plugin::get_text_domain() ),
-					],
-					'numberOfItems' => 5,
-					'offset'        => 0,
-				],
-				'query'   => [
-					'order'         => [
-						'type' => 'string',
-					],
-					'orderBy'       => [
-						'type' => 'string',
-					],
-					'numberOfItems' => [
-						'type' => 'number',
-					],
-					'offset'        => [
-						'type' => 'number',
-					],
-				],
-			],
-			'displayAddToCalendar' => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
 			'renderFromServer'     => [
 				'type'    => 'boolean',
 				'default' => false,
@@ -161,24 +128,6 @@ class Block extends BlockBase {
 	 * @return array
 	 */
 	protected function extend_model( $model ) {
-		$wpquery = $this->get_attribute( 'wpquery' );
-		$args    = [
-			'post_per_page' => isset( $wpquery['numberOfPosts'] ) ? $wpquery['numberOfPosts'] : 5,
-			'offset'        => isset( $wpquery['offset'] ) ? $wpquery['offset'] : 0,
-			'order'         => isset( $wpquery['order'] ) ? $wpquery['order'] : 'desc',
-			'orderby'       => isset( $wpquery['orderby'] ) ? $wpquery['orderby'] : 'date',
-		];
-
-		if ( $args['orderby'] == 'date' ) {
-			$args['meta_key'] = EventsMeta::get_meta_key( 'start' );
-			$args['orderby']  = [ 'meta_value_num', 'date' ];
-		}
-
-		$events = DATA::get_events( $args );
-
-		$model['events']      = $events;
-		$model['eventsCount'] = count( $events );
-
 		return $model;
 	}
 
